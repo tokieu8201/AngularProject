@@ -1,0 +1,10 @@
+<div class="box-container">
+    <div class="box" *ngFor="let item of items">
+        <div class="item">
+            <img class="image" [src]="item.image" alt="">
+            <h3 class="title">{{ item.title}}</h3>
+            <p class="description">{{ item.description}}</p>
+            <a href="" class="seemore">See more<i class='bx bx-chevrons-right'></i></a>
+        </div>
+    </div>
+</div>

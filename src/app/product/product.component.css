@@ -1,0 +1,43 @@
+.box-container{
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto auto auto;
+  grid-gap: 25px;
+}
+
+.box {
+  /* height: 250px; */
+  border-radius: 5px;
+  /* background-color: rgba(243, 234, 234, 0.567); */
+  background-color: #c7c6f795;
+
+}
+
+.box .item{
+  padding: 20px;
+}
+.box .image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.description{
+  font-size: 14px;
+  color: gray;
+  text-align: justify;
+}
+
+.seemore{
+  float: right;
+  padding-bottom: 7px;
+  font-size: 15px;
+}
