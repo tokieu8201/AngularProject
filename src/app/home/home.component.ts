@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ITEMS, Item } from '../item';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-home',
@@ -8,10 +7,5 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent{
-  constructor(private router: Router) {}
-
-  logout(): void {
-    localStorage.removeItem('userInfo');
-    this.router.navigate(['/login']);
-  }
+  
 }

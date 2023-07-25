@@ -1,34 +1,33 @@
-<div *ngIf="!isLoggedIn" class="d-flex justify-content-center mt-5">
-    <div class="card card-info col-sm-4">
+<div *ngIf="!isLoggedIn" class="d-flex justify-content-center login-container">
+    <div class="card card-info col-sm-4 login-card">
         <div class="card-header">
             <h3 class="card-title">Login</h3>
         </div>
         <form [formGroup]="loginForm">
             <div class="card-body">
                 <div class="form-group">
-                    <label for="email">Email address:</label>
+                    <label for="email">Email address<span class="login">*</span></label>
                     <input type="email" class="form-control" placeholder="Enter email" id="email" formControlName="email">
                     <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
                         Email is invalid
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="pwd">Password</label>
+                    <label for="pwd">Password<span class="login">*</span></label>
                     <input type="password" class="form-control" placeholder="Password" id="password" formControlName="password">
                     <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
                         Password is invalid
                     </div>
                 </div>
-                <!-- <div class="form-group form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" > Remember me
-                    </label>
-                </div> -->
                 <div *ngIf="loginError" class="text-danger pb-3">
                     {{ loginError }}
-                  </div>
+                </div>
+                <p>
+                    <a [routerLink]="['/register']" class="register">Dont't have a account? Sign up here</a>
+                </p>
                 <button (click)="login()" type="submit" class="btn btn-success col-sm-12">Sign in</button>
             </div>
         </form>
     </div>
 </div>
+

@@ -1,0 +1,23 @@
+header {
+  background-image: url('header');
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo {
+  background-image: url('logo.png');
+}
+
+.logout:hover {
+  cursor: pointer;
+}
+
+.home {
+  color: black;
+}
