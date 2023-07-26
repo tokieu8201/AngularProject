@@ -10,26 +10,27 @@ import { Item } from '../models/item';
   styleUrls: ['./edit-post.component.css']
 })
 export class EditPostComponent implements OnInit {
-  post!: Item;
-  id!: number;
+  editPost!: Item;
+  editId!: number;
   constructor(
     private route: ActivatedRoute,
     private itemService: ItemService,
-    //private router: Router
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe( params => {
-      this.id = Number(params.get('id'));
-      this.itemService.getItemById(this.id).subscribe(
-        (data) => {this.post = data}
+    this.route.paramMap.subscribe(params => {
+      this.editId = Number(params.get('id'));
+      this.itemService.getItemById(this.editId).subscribe(
+        (data) => { this.editPost = data; }
       )
-    })
+    });
   }
 
   updatePost(): void{
-    this.itemService.updatePost(this.post).subscribe(
-      //(post) => {this.router.navigate(['/home'])}
-    )
+    this.itemService.updatePost(this.editPost).subscribe(
+      () => {this.router.navigate(['/home'])},
+      (error) => {console.log(error);}
+    );
   }
 }

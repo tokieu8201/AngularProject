@@ -13,6 +13,7 @@ import { DetailComponent } from './detail/detail.component';
 import { CreatePostComponent } from './add-edit-post/add-post.component';
 import { RegisterComponent } from './register/register.component';
 import { ListPostComponent } from './list-post/list-post.component';
+import { EditPostComponent } from './add-edit-post/edit-post.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ListPostComponent } from './list-post/list-post.component';
     FooterComponent,
     DetailComponent,
     CreatePostComponent,
+    EditPostComponent,
     RegisterComponent,
     ListPostComponent,
   ],
