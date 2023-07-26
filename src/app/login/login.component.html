@@ -1,9 +1,10 @@
 <div *ngIf="!isLoggedIn" class="d-flex justify-content-center login-container">
     <div class="card card-info col-sm-4 login-card">
-        <div class="card-header">
-            <h3 class="card-title">Login</h3>
-        </div>
         <form [formGroup]="loginForm">
+            <div class="d-flex align-item-center justify-content-center">
+                <i class='bx bxs-user-circle'></i>
+            </div>
+            <h2 class="d-flex align-item-center justify-content-center title">Login</h2>
             <div class="card-body">
                 <div class="form-group">
                     <label for="email">Email address<span class="login">*</span></label>
@@ -22,10 +23,11 @@
                 <div *ngIf="loginError" class="text-danger pb-3">
                     {{ loginError }}
                 </div>
-                <p>
-                    <a [routerLink]="['/register']" class="register">Dont't have a account? Sign up here</a>
-                </p>
                 <button (click)="login()" type="submit" class="btn btn-success col-sm-12">Sign in</button>
+                <p class="d-flex justify-content-center pt-3">
+                    <span style="font-size: 14px; padding-right: 3px;">Dont't have a account?</span> 
+                    <a [routerLink]="['/register']" class="register">Sign up here</a>
+                </p>
             </div>
         </form>
     </div>

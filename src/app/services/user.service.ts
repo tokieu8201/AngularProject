@@ -16,8 +16,15 @@ export class UserService {
     return this.http.get<User[]>(_api + '/user');
   }
   
-  login(email: string, password: string): Observable<any>{
-    const body = { email, password };
+  // login(email: string, password: string): Observable<any>{
+  //   const body = { email, password };
+  //   return this.http.post<any>(_api + '/user', body);
+  // }
+  register(name: string, email: string, password: string): Observable<any>{
+    const body = {name, email, password };
     return this.http.post<any>(_api + '/user', body);
   }
+  // register(user: User): Observable<User>{
+  //   return this.http.post<User>(_api + '/user', user);
+  // }
 }

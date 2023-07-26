@@ -9,10 +9,10 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { RegisterComponent } from './register/register.component';
 import { DetailComponent } from './detail/detail.component';
-import { PostComponent } from './post/post.component';
-import { CreatePostComponent } from './create-post/create-post.component';
+import { CreatePostComponent } from './add-edit-post/add-post.component';
+import { RegisterComponent } from './register/register.component';
+import { ListPostComponent } from './list-post/list-post.component';
 
 @NgModule({
   declarations: [
@@ -21,17 +21,17 @@ import { CreatePostComponent } from './create-post/create-post.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    RegisterComponent,
     DetailComponent,
-    PostComponent,
     CreatePostComponent,
+    RegisterComponent,
+    ListPostComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

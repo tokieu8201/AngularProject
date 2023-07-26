@@ -1,1 +1,42 @@
-<p>register works!</p>
+<div class="d-flex justify-content-center register-container">
+    <div class="card card-info col-sm-4 register-card">
+        <form [formGroup]="registerForm">
+            <div class="d-flex align-item-center justify-content-center">
+                <i class='bx bxs-user-circle'></i>
+            </div>
+            <h2 class="d-flex align-item-center justify-content-center title">Create Account</h2>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="email">Full Name<span class="register">*</span></label>
+                    <input type="name" class="form-control" placeholder="Enter name" id="name" formControlName="name">
+                    <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched" class="text-danger">
+                        Name is required
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address<span class="register">*</span></label>
+                    <input type="email" class="form-control" placeholder="Enter email" id="email" formControlName="email">
+                    <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger">
+                        Email is invalid
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password<span class="register">*</span></label>
+                    <input type="password" class="form-control" placeholder="Password" id="password" formControlName="password">
+                    <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger">
+                        Password is invalid
+                    </div>
+                </div>
+                <div *ngIf="error" class="text-danger pb-3">
+                    {{ error }}
+                </div>
+                <button (click)="register()" type="submit" class="btn btn-success col-sm-12">Sign up</button>
+                <p class="d-flex justify-content-center pt-3">
+                    <span style="font-size: 14px; padding-right: 3px;">Already an account? </span>
+                    <a [routerLink]="['/login']" class="login">Login here</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+

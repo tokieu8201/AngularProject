@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = !!storedUser;
       }
     });
-    
     // const storedUser = localStorage.getItem('userInfo');
     // if (storedUser) {
     //   this.isLoggedIn = true;
@@ -63,6 +62,9 @@ export class LoginComponent implements OnInit {
         this.loginError = 'Passwword not contain the username that exceed two consecutive characters';
       }
     }
+    else{
+      this.loginError = 'Please enter email and password'
+    }
   }
   
   validatePassword(email: string, password: string) {
@@ -76,19 +78,8 @@ export class LoginComponent implements OnInit {
     }
     return true;
   }
-  validatePasswords(control: FormControl): ValidationErrors | null {
-    const email = this.loginForm.value.email;
-    const index = email.indexOf('@');
-    const username = email.substring(0, index);
-    const password = control.value;
-
-    for (let i = 0; i < password.length - 1; i++) {
-      const pass = password.substring(i, i + 2);
-      if (username.includes(pass)) {
-        return { passwordInvalid: true };
-      }
-    }
-
-    return null;
-  }
+  // redirectToRegister() {
+  //   this.isLoggedIn = true;
+  //   this.router.navigate(['/register']);
+  // }
 }

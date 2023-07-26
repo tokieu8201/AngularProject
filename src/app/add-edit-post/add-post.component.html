@@ -1,0 +1,33 @@
+<form [formGroup]="createForm" class="container">
+  <h3 class="title">Create Post</h3>
+  <div class="form-group">
+    <label for="title">Title <span class="text-danger">*</span></label>
+    <input type="text" class="form-control" id="title" formControlName="title" placeholder="Title">
+    <div *ngIf="createForm.get('title')?.invalid && createForm.get('title')?.touched" class="text-danger">
+      Title is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="shortDescription">Short Description <span class="text-danger">*</span></label>
+    <textarea class="form-control" id="shortDescription" formControlName="shortDescription" placeholder="Short Description"></textarea>
+      <div *ngIf="createForm.get('shortDescription')?.invalid && createForm.get('shortDescription')?.touched" class="text-danger">
+        Short Description is required
+      </div>
+  </div>
+  <div class="form-group">
+    <label for="description">Description <span class="text-danger">*</span></label>
+    <textarea class="form-control" id="description" formControlName="description" placeholder="Description"></textarea>
+  </div>
+  <div *ngIf="createForm.get('description')?.invalid && createForm.get('description')?.touched" class="text-danger">
+    Description is required
+  </div>
+  <div class="form-group">
+    <label for="image">Image</label>
+    <input type="text" class="form-control" id="image" formControlName="image" placeholder="Image">
+  </div>
+  <div *ngIf="error" class="text-danger pb-3">
+    {{ error }}
+  </div>
+  <button [routerLink]="['/home']" type="button" class="btn btn-outline-secondary">Cancel</button>
+  <button type="button" class="btn btn-success" (click)="savePost()">Add Post</button>
+</form>

@@ -17,10 +17,13 @@ export class ItemService {
     getItemById(id: number): Observable<Item>{
         return this.http.get<Item>(_api + '/item/' +id);
     }
-    search(key: string): Observable<Item[]>{
-        key = key.trim().toLowerCase();
-        return this.getItems().pipe(
-            map(items => items.filter(item => item.title.toLowerCase().includes(key)))
-        )
+    
+    addPost(post: Item): Observable<Item>{
+        return this.http.post<Item>(_api + '/item', post);
+    }
+    
+
+    updatePost(post: Item): Observable<Item> {
+        return this.http.put<Item>(`${_api}/item/${post.id}`, post);
     }
 }

@@ -1,3 +1,6 @@
+nav{
+  height: 90px;
+}
 header {
   background-image: url('header');
   background-size: cover;
@@ -8,6 +11,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 90px;
 }
 
 .brand-logo {

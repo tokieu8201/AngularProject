@@ -5,4 +5,6 @@ export class Item {
     description: string = ""; 
     image: string = ""; 
     postedOn: Date = new Date();
+    favoritesCount: number = 0;
+    isLiked: boolean = false;
 }

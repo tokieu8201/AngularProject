@@ -1,9 +1,6 @@
 <div class="d-flex header">
-    <a [routerLink]="['/newpost']" class="pt-3"><i class='bx bx-plus mr-1'></i>Add new post</a>
-    <form class="form-inline ml-auto">
-        <input class="form-control" type="text" placeholder="Search" name="search" [(ngModel)]="searchString">
-        <button class="btn btn-success" type="button" (click)="showListPosts()"><i class='bx bx-search-alt-2'></i></button>
-    </form>
+    <button [routerLink]="['/newpost']" class="btn btn-outline-success mt-2 ml-2" style="width: 150px; height: 40px;">Add post<i class='bx bx-plus-medical pl-2'></i></button>
+    
 </div>
 <div class="post-container">
     <div class="item" *ngFor="let item of items">
@@ -11,7 +8,8 @@
             <div class="left">
             </div>
             <div class="right">
-                <button type="button" class="btn btn-outline-success" style="width: 60px; height: 30px;"><i class='bx bxs-heart' ></i>1</button>
+                <button [routerLink]="['/edit-post', item.id]" type="button" class="btn btn-outline-secondary mr-2" style="width: 60px; height: 30px;"><i class='bx bx-edit'></i></button>
+                <button  type="button" class="btn btn-outline-success" style="width: 60px; height: 30px;"><i class='bx bxs-heart' ></i>{{item.favoritesCount}}</button>
             </div>
         </div>
         <div class="item-bottom">
@@ -20,7 +18,7 @@
             </div>
             <div class="right">
                 <h3 class="title">{{ item.title}}</h3>
-                <p class="date">{{ item.postedOn}}</p>
+                <p class="date">{{ item.postedOn | date: "dd/MM/yyyy"}}</p>
                 <p class="description">{{ item.shortDescription}}</p>
                 <a [routerLink]="['/post', item.id]" class="seemore">See more<i class='bx bx-chevrons-right'></i></a>
             </div>
