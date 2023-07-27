@@ -3,24 +3,24 @@
     
 </div>
 <div class="post-container">
-    <div class="item" *ngFor="let item of items">
+    <div class="item" *ngFor="let post of posts">
         <div class="item-top">
             <div class="left">
             </div>
             <div class="right">
-                <button [routerLink]="['/edit-post', item.id]" type="button" class="btn btn-outline-secondary mr-2" style="width: 60px; height: 30px;"><i class='bx bx-edit'></i></button>
-                <button  type="button" class="btn btn-outline-success" style="width: 60px; height: 30px;"><i class='bx bxs-heart' ></i>{{item.favoritesCount}}</button>
+                <button [routerLink]="['/edit-post', post.id]" type="button" class="btn btn-outline-secondary mr-2" style="width: 60px; height: 30px;"><i class='bx bx-edit'></i></button>
+                <!-- <button  type="button" class="btn btn-outline-success" style="width: 60px; height: 30px;"><i class='bx bxs-heart' ></i>{{post.favoritesCount}}</button> -->
             </div>
         </div>
         <div class="item-bottom">
             <div class="left">
-                <img class="image" [src]="item.image" alt="">
+                <img class="image" [src]="post.image" alt="">
             </div>
             <div class="right">
-                <h3 class="title">{{ item.title}}</h3>
-                <p class="date">{{ item.postedOn | date: "dd/MM/yyyy"}}</p>
-                <p class="description">{{ item.shortDescription}}</p>
-                <a [routerLink]="['/post', item.id]" class="seemore">See more<i class='bx bx-chevrons-right'></i></a>
+                <!-- <h3>{{post.id}}</h3> -->
+                <h3 class="title">{{ post.title}}</h3>
+                <p class="description">{{ post.shortDescription}}</p>
+                <a  class="seemore">See more<i class='bx bx-chevrons-right'></i></a>
             </div>
         </div>
     </div>

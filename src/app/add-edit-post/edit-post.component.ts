@@ -1,36 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemService } from '../services/item.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Item } from '../models/item';
-
+import { PostService } from '../services/post.service';
+import { Post } from '../models/post';
 
 @Component({
-  selector: 'app-edit-post',
+  selector: 'edit-add-post',
   templateUrl: './edit-post.component.html',
   styleUrls: ['./edit-post.component.css']
 })
 export class EditPostComponent implements OnInit {
-  editPost!: Item;
+  editPost: Post | undefined;
   editId!: number;
+
   constructor(
     private route: ActivatedRoute,
-    private itemService: ItemService,
-    private router: Router
+    private postService: PostService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.editId = Number(params.get('id'));
-      this.itemService.getItemById(this.editId).subscribe(
-        (data) => { this.editPost = data; }
-      )
+      this.editPost = this.postService.getPostById(this.editId);
     });
   }
 
-  updatePost(): void{
-    this.itemService.updatePost(this.editPost).subscribe(
-      () => {this.router.navigate(['/home'])},
-      (error) => {console.log(error);}
-    );
+  updatePost(): void {
+    if (this.editPost) {
+      const isUpdated = this.postService.updatePost(this.editPost);
+      if (isUpdated) {
+        this.router.navigate(['/home']);
+      }
+    }
   }
 }
