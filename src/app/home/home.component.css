@@ -5,10 +5,8 @@ nav{
     padding-right: 20px;
     height: 60px;
 }
-section{
-    padding-top: 20px;
-    padding-left: 13%;
-    padding-right: 13%;
+.home{
+    padding: 20px 7%;
 }
 
 .logout{

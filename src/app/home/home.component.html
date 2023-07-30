@@ -1,10 +1,13 @@
-<section>
+<div class="home">
+    <div class="d-flex header">
+        <button (click)="addNewPost()" class="btn btn-outline-success mt-2 mb-2" style="width: 150px; height: 40px;">Add post<i class='bx bx-plus-medical pl-2'></i></button>
+    </div>
     <div class="row">
-        <div class="col-sm-9">
-            <app-list-post></app-list-post>
+        <div class="col-sm-8 pr-5">
+            <app-list-post [posts]="posts" (onEditPost)="onEditPost($event)"></app-list-post>
         </div>
-        <div class="col-sm-3 popular">
-            <!-- popular -->
+        <div class="col-sm-4 pl-5">
+            <app-add-edit-post *ngIf="showAddForm || showEditForm" (savePost)="onSavePost($event)" [post]="selectedPost" (cancel)="onCancel()"></app-add-edit-post>
         </div>
     </div>
-</section>
+</div>

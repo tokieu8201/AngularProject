@@ -9,9 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { ListPostComponent } from './list-post/list-post.component';
-import { AddPostComponent } from './add-edit-post/add-post.component';
-import { EditPostComponent } from './add-edit-post/edit-post.component';
+import { ListPostComponent } from './home/list-post/list-post.component';
+import { AddEditPostComponent } from './home/add-edit-post/add-edit-post.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { EditPostComponent } from './add-edit-post/edit-post.component';
     HeaderComponent,
     FooterComponent,
     ListPostComponent,
-    AddPostComponent,
-    EditPostComponent,
+    AddEditPostComponent,
   ],
   imports: [
     BrowserModule,

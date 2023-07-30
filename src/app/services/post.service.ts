@@ -1,31 +1,35 @@
 import { Injectable } from '@angular/core';
 import { POSTS, Post } from '../models/post';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  private posts = POSTS;
+  private posts: Post[] = POSTS;
+  private post = new BehaviorSubject<Post[]>(this.posts);
 
   constructor() { }
 
-  getPosts(): Post[] {
-    return this.posts;
+  getPosts(): Observable<Post[]>{
+    return this.post.asObservable();
   }
 
-  addPost(post: Post): void{
-    this.posts.push(post);
+  addPost(newPost: Post): void{
+    newPost.id = this.posts.length > 0 ? this.posts[this.posts.length - 1].id + 1 : 1;
+    this.posts.push(newPost);
+    this.post.next(this.posts);
   }
 
-  getPostById(id: number): Post | undefined {
-    return this.posts.find(post => post.id === id);
-  }
+  // getPostById(id: number): Post | undefined {
+  //   return this.posts.find(post => post.id === id);
+  // }
 
   updatePost(updatedPost: Post): boolean {
     const index = this.posts.findIndex(post => post.id === updatedPost.id);
     if (index !== -1) {
       this.posts[index] = updatedPost;
+      //this.post.next(this.posts);
       return true;
     }
     return false;
