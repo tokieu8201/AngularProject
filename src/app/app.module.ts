@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ListPostComponent } from './home/list-post/list-post.component';
 import { AddEditPostComponent } from './home/add-edit-post/add-edit-post.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AddEditPostComponent } from './home/add-edit-post/add-edit-post.compone
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

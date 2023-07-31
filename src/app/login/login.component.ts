@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { USERS } from '../models/user';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   loginError: string = '';
   isLoggedIn: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -26,17 +27,38 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  // login(): void {
+  //   if (this.loginForm.valid) {
+  //     const email = this.loginForm.value.email;
+  //     const password = this.loginForm.value.password;
+  //     if (this.validatePassword(email, password)) {
+  //       const user = USERS.find(u => u.email === email && u.password === password);
+  //       if (user) {
+  //         localStorage.setItem('userInfo', JSON.stringify({ email, password }));
+  //         this.isLoggedIn = true;
+  //         this.router.navigate(['/home']);
+  //       } else {
+  //         this.loginError = 'Email or password is incorrect';
+  //       }
+  //     } else {
+  //       this.loginError = 'Passwword Not contain the username that exceed two consecutive characters.';
+  //     }
+  //   } else {
+  //     this.loginError = 'Please enter email and password'
+  //   }
+  // }
+
   login(): void {
     if (this.loginForm.valid) {
       const email = this.loginForm.value.email;
       const password = this.loginForm.value.password;
       if (this.validatePassword(email, password)) {
-        const user = USERS.find(u => u.email === email && u.password === password);
-        if (user) {
+        if (this.userService.login(email, password)) {
           localStorage.setItem('userInfo', JSON.stringify({ email, password }));
           this.isLoggedIn = true;
           this.router.navigate(['/home']);
-        } else {
+        }
+        else {
           this.loginError = 'Email or password is incorrect';
         }
       } else {
