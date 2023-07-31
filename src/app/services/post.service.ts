@@ -21,15 +21,11 @@ export class PostService {
     this.post.next(this.posts);
   }
 
-  // getPostById(id: number): Post | undefined {
-  //   return this.posts.find(post => post.id === id);
-  // }
-
   updatePost(updatedPost: Post): boolean {
     const index = this.posts.findIndex(post => post.id === updatedPost.id);
     if (index !== -1) {
       this.posts[index] = updatedPost;
-      //this.post.next(this.posts);
+      this.post.next(this.posts);
       return true;
     }
     return false;

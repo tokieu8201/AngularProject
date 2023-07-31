@@ -27,27 +27,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // login(): void {
-  //   if (this.loginForm.valid) {
-  //     const email = this.loginForm.value.email;
-  //     const password = this.loginForm.value.password;
-  //     if (this.validatePassword(email, password)) {
-  //       const user = USERS.find(u => u.email === email && u.password === password);
-  //       if (user) {
-  //         localStorage.setItem('userInfo', JSON.stringify({ email, password }));
-  //         this.isLoggedIn = true;
-  //         this.router.navigate(['/home']);
-  //       } else {
-  //         this.loginError = 'Email or password is incorrect';
-  //       }
-  //     } else {
-  //       this.loginError = 'Passwword Not contain the username that exceed two consecutive characters.';
-  //     }
-  //   } else {
-  //     this.loginError = 'Please enter email and password'
-  //   }
-  // }
-
   login(): void {
     if (this.loginForm.valid) {
       const email = this.loginForm.value.email;

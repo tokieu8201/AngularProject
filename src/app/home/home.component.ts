@@ -29,11 +29,14 @@ export class HomeComponent implements OnInit {
     this.showEditForm = true;
     this.selectedPost = {...post};
   }
+
   onSavePost(newPost: Post) {
     if (!this.showEditForm) {
       this.postService.addPost(newPost);
+      this.showAddForm = false;
     } else {
       this.postService.updatePost(newPost);
+      this.showEditForm = false;
     }
   }
 
