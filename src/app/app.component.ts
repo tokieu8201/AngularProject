@@ -7,14 +7,5 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  isLoggedIn: boolean = false;
 
-  constructor(private router: Router) {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        const storedUser = localStorage.getItem('userInfo');
-        this.isLoggedIn = !!storedUser;
-      }
-    });
-  }  
 }
